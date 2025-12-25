@@ -17,7 +17,7 @@ const donorSchema = new mongoose.Schema(
       min: 18,
     },
     phone: {
-      type: String,
+      type: Number,
       required: true,
     },
     city: {

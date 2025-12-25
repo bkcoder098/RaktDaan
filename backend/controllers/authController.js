@@ -2,21 +2,19 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-/* ================= SIGNUP ================= */
+//Signup
 export const signup = async (req, res) => {
   try {
     const { name, email, password, adminCode } = req.body;
 
-    // check if user exists
     const exists = await User.findOne({ email });
     if (exists) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // role logic (SECRET ADMIN CODE)
+    // role 
     const role =
       adminCode && adminCode === process.env.ADMIN_CODE
         ? "admin"
@@ -30,7 +28,7 @@ export const signup = async (req, res) => {
       role,
     });
 
-    // auto-login (JWT)
+    // auto login
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET,
@@ -47,7 +45,7 @@ export const signup = async (req, res) => {
   }
 };
 
-/* ================= LOGIN ================= */
+//login
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;

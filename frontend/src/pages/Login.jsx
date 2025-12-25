@@ -10,33 +10,30 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const submit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const res = await API.post("/auth/login", { email, password });
+    try {
+      const res = await API.post("/auth/login", { email, password });
 
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("role", res.data.role);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.role);
 
-    toast.success("Login successful ✅");
+      toast.success("Login successful ");
 
-    localStorage.setItem("name", res.data.name);
+      localStorage.setItem("name", res.data.name);
 
-    navigate("/");
-    window.location.reload();
-  } catch (err) {
-    toast.error(err.response?.data?.message || "Login failed");
-  }
-};
-
+      navigate("/");
+      window.location.reload();
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Login failed");
+    }
+  };
 
   return (
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <div className="card shadow">
         <div className="card-body">
-          <h3 className="text-center text-danger fw-bold mb-4">
-            Login
-          </h3>
+          <h3 className="text-center text-danger fw-bold mb-4">Login</h3>
 
           <form onSubmit={submit}>
             <div className="mb-3">
@@ -61,13 +58,10 @@ export default function Login() {
               />
             </div>
 
-            <button className="btn btn-danger w-100">
-              Login
-            </button>
+            <button className="btn btn-danger w-100">Login</button>
           </form>
         </div>
       </div>
     </div>
   );
 }
-

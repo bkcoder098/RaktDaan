@@ -7,10 +7,10 @@ export default function FindBlood() {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    API.get("/donors").then(res => setDonors(res.data));
+    API.get("/donors").then((res) => setDonors(res.data));
   }, []);
 
-  const filteredDonors = donors.filter(d =>
+  const filteredDonors = donors.filter((d) =>
     filter ? d.bloodGroup === filter : true
   );
 
@@ -18,7 +18,7 @@ export default function FindBlood() {
     <div className="container mt-4">
       <h3 className="text-danger fw-bold mb-3">Find Blood</h3>
 
-      {/* 🔍 Filter */}
+      {/*Filter*/}
       <select
         className="form-select mb-4"
         onChange={(e) => setFilter(e.target.value)}
@@ -39,7 +39,7 @@ export default function FindBlood() {
           <p className="text-muted">No donors found</p>
         )}
 
-        {filteredDonors.map(d => (
+        {filteredDonors.map((d) => (
           <div className="col-md-4 mb-3" key={d._id}>
             <DonorCard donor={d} />
           </div>
@@ -48,4 +48,3 @@ export default function FindBlood() {
     </div>
   );
 }
-

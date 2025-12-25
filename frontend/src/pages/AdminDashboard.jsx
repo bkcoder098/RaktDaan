@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import { toast } from "react-toastify";
@@ -35,7 +33,7 @@ export default function AdminDashboard() {
     <div className="container mt-4">
       <h3 className="text-danger fw-bold mb-4">Admin Dashboard</h3>
 
-      {/* 📊 Stats */}
+      {/*Stats */}
       <div className="row mb-4">
         <div className="col-md-6">
           <div className="card shadow-sm text-center">
@@ -58,9 +56,14 @@ export default function AdminDashboard() {
 
       {/* Donors */}
       <h5>Donors</h5>
-      {donors.map(d => (
-        <div key={d._id} className="d-flex justify-content-between border p-2 mb-2">
-          <span>{d.name} ({d.bloodGroup})</span>
+      {donors.map((d) => (
+        <div
+          key={d._id}
+          className="d-flex justify-content-between border p-2 mb-2"
+        >
+          <span>
+            {d.name} ({d.bloodGroup})
+          </span>
           <button
             className="btn btn-sm btn-danger"
             onClick={() => deleteDonor(d._id)}
@@ -72,9 +75,14 @@ export default function AdminDashboard() {
 
       {/* Requests */}
       <h5 className="mt-4">Blood Requests</h5>
-      {requests.map(r => (
-        <div key={r._id} className="d-flex justify-content-between border p-2 mb-2">
-          <span>{r.patientName} ({r.bloodGroup})</span>
+      {requests.map((r) => (
+        <div
+          key={r._id}
+          className="d-flex justify-content-between border p-2 mb-2"
+        >
+          <span>
+            {r.patientName} ({r.bloodGroup})
+          </span>
           <button
             className="btn btn-sm btn-danger"
             onClick={() => deleteRequest(r._id)}

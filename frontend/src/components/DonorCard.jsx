@@ -1,28 +1,18 @@
 export default function DonorCard({ donor }) {
   return (
-    <div className="card h-100 shadow-sm">
-      <div className="card-body text-center">
-        <h5 className="card-title fw-bold">
-          {donor.name}
-        </h5>
+    <div className="card donor-card h-100">
+      <div className="card-body text-center p-4">
+        <h5 className="fw-bold mb-1">{donor.name}</h5>
 
-        <h6 className="text-danger fw-bold mb-2">
+        <span className="badge bg-danger mb-3 px-3 py-2">
           {donor.bloodGroup}
-        </h6>
+        </span>
 
-        <p className="text-muted mb-3">
-          {donor.city}
-        </p>
+        <p className="text-muted mb-2">{donor.city}</p>
 
-        <p className="text-muted mb-3">
-          contact:-  
-          {donor.phone}
-        </p>
+        <p className="text-muted small mb-3">{donor.phone}</p>
 
-        <a
-          href={`tel:${donor.phone}`}
-          className="btn btn-success w-100"
-        >
+        <a href={`tel:${donor.phone}`} className="btn btn-success w-100">
           Call Donor
         </a>
       </div>

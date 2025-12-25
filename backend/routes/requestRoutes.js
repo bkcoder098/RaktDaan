@@ -7,7 +7,7 @@ import {
 
 const router = express.Router();
 
-router.post("/", createRequest);
+router.post("/",  createRequest);
 router.get("/", getRequests);
 router.delete("/:id", deleteRequest);
 

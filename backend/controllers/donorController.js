@@ -10,7 +10,7 @@ export const createDonor = async (req, res) => {
   }
 };
 
-// READ all donors
+//  show  all donors list
 export const getDonors = async (req, res) => {
   try {
     const donors = await Donor.find({ isAvailable: true });
@@ -20,7 +20,6 @@ export const getDonors = async (req, res) => {
   }
 };
 
-// READ donor by ID
 export const getDonorById = async (req, res) => {
   try {
     const donor = await Donor.findById(req.params.id);
@@ -30,7 +29,6 @@ export const getDonorById = async (req, res) => {
   }
 };
 
-// UPDATE donor
 export const updateDonor = async (req, res) => {
   try {
     const donor = await Donor.findByIdAndUpdate(
