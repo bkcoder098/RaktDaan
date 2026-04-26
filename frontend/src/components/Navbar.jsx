@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CgProfile } from "react-icons/cg";
+import { BiSolidDonateBlood } from "react-icons/bi";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ export default function Navbar() {
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
           RaktDaan
+          <BiSolidDonateBlood />
         </Link>
 
         {/* Mobile toggle */}
@@ -107,8 +110,9 @@ export default function Navbar() {
 
             {token && (
               <li className="nav-item ms-lg-3">
+                <CgProfile />
                 <span className="text-dark small">
-                  Hi, <strong>{name}</strong> 
+                   <strong>{name} </strong> 
                 </span>
               </li>
             )}

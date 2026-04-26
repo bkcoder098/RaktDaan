@@ -1,3 +1,6 @@
+import { FaMapPin } from "react-icons/fa";
+import { MdCall } from "react-icons/md";
+
 export default function DonorCard({ donor }) {
   return (
     <div className="card donor-card h-100">
@@ -8,9 +11,9 @@ export default function DonorCard({ donor }) {
           {donor.bloodGroup}
         </span>
 
-        <p className="text-muted mb-2">{donor.city}</p>
+        <p className="text-muted mb-2"> <FaMapPin /> {donor.city}</p>
 
-        <p className="text-muted small mb-3">{donor.phone}</p>
+        <p className="text-muted small mb-3"> <MdCall /> {donor.phone}</p>
 
         <a href={`tel:${donor.phone}`} className="btn btn-success w-100">
           Call Donor

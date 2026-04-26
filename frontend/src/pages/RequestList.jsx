@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import { FaMapPin } from "react-icons/fa";
+import { MdCall } from "react-icons/md";
 
 export default function RequestList() {
   const [requests, setRequests] = useState([]);
@@ -35,11 +37,11 @@ export default function RequestList() {
                   </span>
 
                   <p className="text-muted mb-1">
-                    📍 {req.city}
+                    <FaMapPin />{req.city}
                   </p>
 
                   <p className="text-muted small">
-                    📞 {req.phone}
+                    <MdCall /> {req.phone}
                   </p>
 
                   <a

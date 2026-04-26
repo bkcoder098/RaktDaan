@@ -10,13 +10,15 @@ import {
 
 const router = express.Router();
 
-router.post("/", protect, createDonor);
-router.delete("/:id", protect, deleteDonor);
-
+// Public route (no login required)
 router.post("/", createDonor);
+
+// Protected routes
+router.delete("/:id", protect, deleteDonor);
+router.put("/:id", protect, updateDonor);
+
+// Public fetch
 router.get("/", getDonors);
 router.get("/:id", getDonorById);
-router.put("/:id", updateDonor);
-router.delete("/:id", deleteDonor);
 
 export default router;
